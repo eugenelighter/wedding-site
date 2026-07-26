@@ -1,0 +1,2506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадьба Евгения и Марии</title>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta property="og:title" content="Свадьба Евгения и Марии">
+    <meta property="og:description" content="12 сентября 2026 года. Приглашаем вас разделить с нами самый важный день!">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&family=Great+Vibes&family=Marck+Script&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #3E2723;
+            --secondary-color: #F1E1C6;
+            --accent-color: #8B9466;
+            --accent-dark: #6f7950;
+            --accent-light: #9DAA77;
+            --text-color: #4A4540;
+            --bg-color: #FDFBF9;
+            --light-bg: #F5F1ED;
+            --petal-color: rgba(241, 225, 198, 0.95);
+            --silver: #C0C0C0;
+            --silver-light: #E8E8E8;
+            --silver-dark: #808080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='%23C0C0C0' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") 12 12, auto;
+        }
+
+        a, button, .gallery-btn, .route-btn, .submit-btn, .audio-player, .scroll-indicator {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'><path fill='%238B6F47' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") 14 14, pointer !important;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 2px solid var(--silver);
+            pointer-events: none;
+            z-index: 9998;
+            animation: frameShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes frameShimmer {
+            0%, 100% { 
+                border-color: var(--silver);
+                box-shadow: inset 0 0 20px rgba(192, 192, 192, 0.1);
+            }
+            50% { 
+                border-color: var(--silver-light);
+                box-shadow: inset 0 0 30px rgba(192, 192, 192, 0.3);
+            }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(192, 192, 192, 0.4);
+            pointer-events: none;
+            z-index: 9997;
+        }
+
+        .corner-ornament {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .corner-ornament.top-left { top: 5px; left: 5px; }
+        .corner-ornament.top-right { top: 5px; right: 5px; transform: scaleX(-1); }
+        .corner-ornament.bottom-left { bottom: 5px; left: 5px; transform: scaleY(-1); }
+        .corner-ornament.bottom-right { bottom: 5px; right: 5px; transform: scale(-1, -1); }
+
+        .petals-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -20px;
+            background: var(--petal-color);
+            border-radius: 150% 0 150% 0;
+            opacity: 0;
+            animation: fall linear;
+            pointer-events: none;
+            box-shadow: 0 3px 8px rgba(62, 39, 35, 0.3);
+        }
+
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(-5vh) rotate(0deg) translateX(0); }
+            10% { opacity: 1; }
+            90% { opacity: 0.9; }
+            100% { opacity: 0; transform: translateY(105vh) rotate(720deg) translateX(150px); }
+        }
+
+        .sparkles-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 49;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, white 0%, var(--silver-light) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .light-leaks {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 48;
+            overflow: hidden;
+        }
+
+        .light-leak {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: floatLeak 15s ease-in-out infinite;
+        }
+
+        .light-leak:nth-child(1) {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(241, 225, 198, 0.6) 0%, transparent 70%);
+            top: 10%; left: 10%;
+        }
+
+        .light-leak:nth-child(2) {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 160, 0.4) 0%, transparent 70%);
+            top: 50%; right: 10%;
+            animation-delay: 5s;
+        }
+
+        .light-leak:nth-child(3) {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(139, 148, 102, 0.3) 0%, transparent 70%);
+            bottom: 20%; left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes floatLeak {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, 30px) scale(1.1); }
+            50% { transform: translate(-30px, 60px) scale(0.9); }
+            75% { transform: translate(40px, -20px) scale(1.05); }
+        }
+
+        #hero {
+            background: 
+                linear-gradient(135deg, rgba(245, 241, 237, 0.95) 0%, rgba(253, 251, 249, 0.95) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(192, 192, 192, 0.03) 2px, rgba(192, 192, 192, 0.03) 4px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #invitation {
+            background: 
+                linear-gradient(135deg, rgba(245, 241, 237, 0.98) 0%, rgba(241, 225, 198, 0.3) 100%),
+                radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            padding: 60px 20px;
+            min-height: auto;
+        }
+
+        #gallery {
+            background: 
+                linear-gradient(180deg, rgba(253, 251, 249, 0.95) 0%, rgba(245, 241, 237, 0.95) 100%),
+                repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(192, 192, 192, 0.02) 3px, rgba(192, 192, 192, 0.02) 6px);
+        }
+
+        #video-section {
+            background: linear-gradient(135deg, rgba(245, 241, 237, 0.98) 0%, rgba(241, 225, 198, 0.4) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        #details {
+            background: 
+                linear-gradient(135deg, rgba(253, 251, 249, 0.98) 0%, rgba(241, 225, 198, 0.2) 100%);
+        }
+
+        #schedule {
+            background: 
+                linear-gradient(180deg, rgba(245, 241, 237, 0.98) 0%, rgba(253, 251, 249, 0.95) 100%),
+                radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #dresscode {
+            background: 
+                linear-gradient(135deg, rgba(245, 241, 237, 0.98) 0%, rgba(241, 225, 198, 0.4) 100%);
+        }
+
+        #wishes {
+            background: 
+                linear-gradient(135deg, rgba(245, 241, 237, 0.98) 0%, rgba(241, 225, 198, 0.3) 100%);
+            min-height: auto;
+            padding: 100px 20px;
+        }
+
+        #countdown {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+        }
+
+        #rsvp {
+            background: 
+                linear-gradient(180deg, rgba(253, 251, 249, 0.98) 0%, rgba(245, 241, 237, 0.95) 100%);
+        }
+
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .wave-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+
+        .monogram {
+            position: absolute;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--silver);
+            opacity: 0.4;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .monogram.top-right { top: 30px; right: 40px; }
+        .monogram.bottom-left { bottom: 30px; left: 40px; }
+
+        .section-ornament {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .section-ornament.top-left { top: 20px; left: 20px; }
+        .section-ornament.top-right { top: 20px; right: 20px; transform: scaleX(-1); }
+        .section-ornament.bottom-left { bottom: 20px; left: 20px; transform: scaleY(-1); }
+        .section-ornament.bottom-right { bottom: 20px; right: 20px; transform: scale(-1, -1); }
+
+        h1, h2, h3, 
+        .section-title,
+        .detail-title,
+        .timeline-time,
+        .gallery-caption,
+        .dresscode-text,
+        .countdown-number,
+        .form-group label,
+        .couple-names,
+        .footer-names,
+        .invitation-heading {
+            font-family: 'Great Vibes', cursive !important;
+            font-style: normal !important;
+            font-weight: 400 !important;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .gallery-slide img {
+            animation: filmReveal 2s ease-out;
+        }
+
+        @keyframes filmReveal {
+            0% { filter: sepia(1) brightness(0.5) contrast(1.5); opacity: 0; }
+            50% { filter: sepia(0.5) brightness(0.8) contrast(1.2); opacity: 0.7; }
+            100% { filter: sepia(0) brightness(1) contrast(1); opacity: 1; }
+        }
+
+        .countdown-number {
+            display: inline-block;
+            perspective: 400px;
+        }
+
+        .countdown-number.flip {
+            animation: flipNumber 0.6s ease-out;
+        }
+
+        @keyframes flipNumber {
+            0% { transform: rotateX(0deg); }
+            50% { transform: rotateX(90deg); opacity: 0.5; }
+            100% { transform: rotateX(0deg); }
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--accent-color) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--accent-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.08;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .couple-names {
+            font-size: 6rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+
+        .wedding-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2rem 0 0.5rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .hero-gathering-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--primary-color);
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .invitation-wrapper {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .invitation-heading {
+            font-size: 4.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            text-transform: none !important;
+            letter-spacing: 0.08em;
+            margin-bottom: 4.8rem;
+            line-height: 1.1;
+            position: relative;
+            z-index: 5;
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            margin: 110px auto 0;
+            transform-style: preserve-3d;
+            z-index: 3;
+        }
+
+        .clothesline {
+            position: absolute;
+            left: 50%;
+            top: -35px;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 2px;
+            background: linear-gradient(to right, rgba(0,0,0,0.0), rgba(88, 97, 60, 0.9), rgba(0,0,0,0.0));
+            box-shadow: 0 0.5px 0 rgba(255,255,255,0.3), 0 -0.5px 0 rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .paperclip {
+            position: absolute;
+            left: 50%;
+            top: -60px;
+            transform: translateX(-50%) rotate(7deg);
+            width: 40px;
+            height: 80px;
+            z-index: 4;
+            filter: drop-shadow(0 6px 6px rgba(0,0,0,0.2));
+            opacity: 0;
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease;
+        }
+        .envelope.open + .paperclip,
+        .paperclip.shown { opacity: 1; transform: translateX(-50%) rotate(2deg); }
+        .paperclip svg { width: 100%; height: 100%; }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(180deg, var(--accent-light), var(--accent-color) 30%, var(--accent-dark));
+            border-radius: 6px;
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.25);
+            overflow: visible;
+            transform-style: preserve-3d;
+            z-index: 3;
+            margin-top: 20px;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0; right: 0;
+            height: 160px;
+            background: linear-gradient(145deg, var(--accent-dark), var(--accent-color));
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            transform-origin: top center;
+            transform: rotateX(0deg);
+            transition: transform 1s cubic-bezier(.25,.75,.25,1);
+            z-index: 5;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .envelope.open .envelope-flap { transform: rotateX(-178deg); }
+
+        .envelope-side-left,
+        .envelope-side-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent-color));
+            z-index: 2;
+        }
+        .envelope-side-left  { left: 0;  clip-path: polygon(0 0, 100% 50%, 0 100%); }
+        .envelope-side-right { right: 0; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
+
+        .envelope-bottom {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-dark), var(--accent-color) 40%);
+            clip-path: polygon(0 100%, 50% 32%, 100% 100%);
+            z-index: 2;
+            box-shadow: inset 0 20px 30px rgba(0,0,0,0.12);
+        }
+
+        .envelope-paper {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: 15%;
+            bottom: 5%;
+            background-color: #FBF9F3;
+            background-image:
+                repeating-linear-gradient(0deg, transparent 0 31px, rgba(120,140,120,0.18) 31px 32px),
+                repeating-linear-gradient(45deg, rgba(90,70,50,0.03) 0 3px, transparent 3px 6px),
+                radial-gradient(220px 140px at 80% 25%, rgba(90,70,50,0.06), transparent 60%),
+                radial-gradient(260px 160px at 20% 75%, rgba(90,70,50,0.05), transparent 60%),
+                linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+            border: 1px solid rgba(94, 80, 60, 0.18);
+            border-radius: 6px;
+            padding: 40px 30px;
+            box-shadow:
+                0 14px 30px rgba(0,0,0,0.15),
+                inset 0 0 40px rgba(241,225,198,0.22),
+                inset 0 8px 14px rgba(255,255,255,0.35);
+            z-index: 3;
+            transform: translateY(25%);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(.17,.84,.44,1), opacity 1.2s ease;
+            overflow: hidden;
+        }
+        .envelope-paper::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                radial-gradient(rgba(0,0,0,0.06) 0.6px, transparent 0.7px);
+            background-size: 3px 3px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .envelope-paper::after {
+            content: 'Е & М';
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%,-50%) rotate(-8deg);
+            font-family: 'Great Vibes', cursive;
+            font-size: 6rem;
+            color: rgba(139,148,102,0.16);
+            letter-spacing: 0.04em;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .envelope.open .envelope-paper {
+            transform: translateY(-14%);
+            opacity: 1;
+        }
+
+        .handwritten {
+            position: relative;
+            z-index: 1;
+            font-family: 'Marck Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.9rem;
+            color: #2f2b27;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .handwritten .cursor {
+            display: inline-block;
+            width: 2px;
+            background: #2f2b27;
+            margin-left: 2px;
+            animation: blink 1s steps(1, end) infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 4rem 0;
+        }
+
+        .detail-card {
+            position: relative;
+            background: white;
+            padding: 3rem 2rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(62, 39, 35, 0.12);
+            transition: all 0.4s ease;
+            overflow: visible;
+        }
+
+        .detail-card::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px solid var(--silver);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .detail-card::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            font-size: 1.5rem;
+            color: var(--silver);
+            opacity: 0.6;
+        }
+
+        .detail-card .corner-flourish {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .detail-card .corner-flourish.top-right {
+            top: 8px; right: 8px;
+            transform: scaleX(-1);
+        }
+
+        .detail-card .corner-flourish.bottom-left {
+            bottom: 8px; left: 8px;
+            transform: scaleY(-1);
+        }
+
+        .detail-card .corner-flourish.bottom-right {
+            bottom: 8px; right: 8px;
+            transform: scale(-1, -1);
+        }
+
+        .detail-card:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(62, 39, 35, 0.18);
+        }
+
+        .detail-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .detail-icon svg {
+            width: 60px;
+            height: 60px;
+            stroke: var(--primary-color);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .detail-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .detail-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .detail-card p strong {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        .route-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .route-btn:hover { background-color: var(--accent-color); }
+
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .timeline-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        .timeline-path {
+            fill: none;
+            stroke: var(--silver);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.7;
+            transition: stroke-dashoffset 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-path.animate {
+            stroke-dashoffset: 0 !important;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            z-index: 2;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-time {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+            text-align: center;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .timeline-content {
+            padding: 1.5rem 2.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(62, 39, 35, 0.1);
+            max-width: 400px;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+
+        .timeline-content strong {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-style: italic;
+            display: block;
+        }
+
+        .heart-slider {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            transition: none;
+            will-change: left, top;
+        }
+
+        .heart-slider svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+        }
+
+        .gallery-slider {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            background: var(--light-bg);
+        }
+
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 667px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+            z-index: 10;
+        }
+
+        .gallery-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-btn.prev { left: 15px; }
+        .gallery-btn.next { right: 15px; }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.3);
+        }
+
+        .dresscode-content {
+            max-width: 1000px;
+            margin: 2rem 0;
+        }
+
+        .dresscode-text {
+            font-size: 2.5rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+
+        .color-item { 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .color-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .color-circle:hover { transform: scale(1.1); }
+
+        .color-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .color-reference {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .color-reference:hover {
+            transform: scale(1.05);
+        }
+
+        .color-reference img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .audio-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .audio-player:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .audio-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .audio-player.playing .audio-icon {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        #countdown .section-title { color: white; }
+
+        .countdown-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .countdown-item { text-align: center; }
+
+        .countdown-number {
+            font-size: 5rem;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+        }
+
+        .rsvp-form {
+            max-width: 500px;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-btn:hover { background-color: var(--accent-color); }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: rgba(139, 148, 102, 0.15);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: rgba(200, 80, 80, 0.1);
+            color: #c85050;
+            border: 1px solid #c85050;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 20px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        footer p { margin: 0.5rem 0; }
+
+        .footer-names {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(62, 39, 35, 0.2);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Стили для блока Пожелания */
+        .wishes-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .wish-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(62, 39, 35, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .wish-card::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px solid var(--silver);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(62, 39, 35, 0.15);
+        }
+
+        /* Третья плашка на всю ширину */
+        .wish-card-wide {
+            grid-column: 1 / -1;
+            flex-direction: row;
+            text-align: left;
+            gap: 2rem;
+        }
+
+        .wish-icon-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+        }
+
+        .wish-card-wide .wish-icon-img {
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+
+        .wish-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .couple-names { font-size: 4rem; }
+            .section-title { font-size: 3rem; }
+            .countdown-number { font-size: 3rem; }
+            .countdown-container { gap: 1rem; }
+
+            .gallery-slide img { height: 467px; }
+            .gallery-slider { max-width: 350px; }
+            .gallery-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+            .gallery-btn.prev { left: 10px; }
+            .gallery-btn.next { right: 10px; }
+
+            .color-circle { width: 90px; height: 90px; }
+            .color-reference { width: 120px; height: 120px; }
+            .color-palette { gap: 2rem; }
+
+            .audio-player { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+            .audio-icon { font-size: 1.5rem; }
+
+            .monogram { font-size: 1.5rem; }
+            .section-ornament { width: 50px; height: 50px; }
+            .corner-ornament { width: 40px; height: 40px; }
+
+            .invitation-heading { font-size: 3rem; }
+
+            .envelope-container { 
+                max-width: 100%; 
+                margin-top: 80px; 
+            }
+            .envelope { 
+                height: 380px;
+            }
+            .envelope-paper { 
+                padding: 28px 20px;
+                top: 12%;
+                bottom: 4%;
+                left: 4%;
+                right: 4%;
+            }
+            .handwritten { 
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+            }
+            .clothesline { width: 130%; top: -28px; }
+
+            .timeline-content {
+                max-width: 100%;
+            }
+
+            .heart-slider { width: 40px; height: 40px; }
+            
+            .wishes-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .wish-card-wide {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .wish-card-wide .wish-icon-img {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <svg class="corner-ornament top-left" viewBox="0 0 60 60">
+        <path d="M5,5 Q5,30 30,30 Q5,30 5,55" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+        <path d="M10,10 Q10,25 25,25" fill="none" stroke="#C0C0C0" stroke-width="0.5"/>
+        <circle cx="5" cy="5" r="2" fill="#C0C0C0"/>
+        <path d="M15,5 Q20,15 30,20" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+        <path d="M5,15 Q15,20 20,30" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+    </svg>
+    <svg class="corner-ornament top-right" viewBox="0 0 60 60">
+        <path d="M5,5 Q5,30 30,30 Q5,30 5,55" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+        <path d="M10,10 Q10,25 25,25" fill="none" stroke="#C0C0C0" stroke-width="0.5"/>
+        <circle cx="5" cy="5" r="2" fill="#C0C0C0"/>
+        <path d="M15,5 Q20,15 30,20" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+        <path d="M5,15 Q15,20 20,30" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+    </svg>
+    <svg class="corner-ornament bottom-left" viewBox="0 0 60 60">
+        <path d="M5,5 Q5,30 30,30 Q5,30 5,55" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+        <path d="M10,10 Q10,25 25,25" fill="none" stroke="#C0C0C0" stroke-width="0.5"/>
+        <circle cx="5" cy="5" r="2" fill="#C0C0C0"/>
+        <path d="M15,5 Q20,15 30,20" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+        <path d="M5,15 Q15,20 20,30" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+    </svg>
+    <svg class="corner-ornament bottom-right" viewBox="0 0 60 60">
+        <path d="M5,5 Q5,30 30,30 Q5,30 5,55" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+        <path d="M10,10 Q10,25 25,25" fill="none" stroke="#C0C0C0" stroke-width="0.5"/>
+        <circle cx="5" cy="5" r="2" fill="#C0C0C0"/>
+        <path d="M15,5 Q20,15 30,20" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+        <path d="M5,15 Q15,20 20,30" fill="none" stroke="#C0C0C0" stroke-width="0.5" opacity="0.6"/>
+    </svg>
+
+    <div class="light-leaks">
+        <div class="light-leak"></div>
+        <div class="light-leak"></div>
+        <div class="light-leak"></div>
+    </div>
+
+    <div class="sparkles-container" id="sparklesContainer"></div>
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <section id="hero">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <path d="M15,15 Q22,12 28,18" fill="none" stroke="#8B9466" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <path d="M15,15 Q22,12 28,18" fill="none" stroke="#8B9466" stroke-width="0.5" opacity="0.4"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <div class="hero-content">
+            <p style="font-size: 2rem; color: var(--primary-color); font-family: 'Great Vibes', cursive;">Приглашение на свадьбу</p>
+            <h1 class="couple-names">Евгений и Мария</h1>
+            <p class="wedding-date">12 сентября 2026</p>
+            <p class="hero-gathering-time">Сбор гостей в 17:30</p>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('invitation')">↓</div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z" fill="#F5F1ED"/>
+        </svg>
+    </div>
+
+    <section id="invitation">
+        <div class="invitation-wrapper">
+            <h2 class="invitation-heading fade-in">Дорогие Друзья!</h2>
+
+            <div class="envelope-container fade-in" id="envelopeContainer">
+                <div class="clothesline" aria-hidden="true"></div>
+
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-side-left"></div>
+                    <div class="envelope-side-right"></div>
+                    <div class="envelope-bottom"></div>
+
+                    <div class="envelope-paper">
+                        <div class="handwritten" id="handText">
+                            <span class="cursor" id="cursor" style="display:none;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paperclip" id="paperclip" aria-hidden="true">
+                    <svg viewBox="0 0 40 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#f5f5f5"/>
+                                <stop offset="50%" stop-color="#cfcfcf"/>
+                                <stop offset="100%" stop-color="#9e9e9e"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M20 6 C28 6 32 12 32 20 L32 60 C32 68 26 74 18 74 C10 74 6 68 6 60 L6 28 C6 20 12 16 18 16 C24 16 28 20 28 26"
+                              stroke="url(#metal)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 28 L10 60 C10 66 14 70 18 70" stroke="#E8E8E8" stroke-width="1.6" opacity="0.6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C300,0 600,80 900,40 C1050,20 1150,60 1200,40 L1200,80 L0,80 Z" fill="#FDFBF9"/>
+        </svg>
+    </div>
+
+    <section id="gallery">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <h2 class="section-title fade-in">Наша история в фотографиях</h2>
+        
+        <div class="gallery-slider fade-in">
+            <div class="gallery-slides" id="gallerySlides"></div>
+            <button class="gallery-btn prev" onclick="changeSlide(-1)">‹</button>
+            <button class="gallery-btn next" onclick="changeSlide(1)">›</button>
+        </div>
+        
+        <div class="gallery-dots" id="galleryDots"></div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,20 C200,60 400,0 600,40 C800,80 1000,20 1200,40 L1200,80 L0,80 Z" fill="#F5F1ED"/>
+        </svg>
+    </div>
+
+    <section id="video-section">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <div class="video-container fade-in">
+            <h2 class="section-title">ИИ-видосик, который просто захотелось выложить</h2>
+            
+            <div class="video-wrapper">
+                <video id="autoVideo" muted loop playsinline preload="auto">
+                    <source src="photos/0708.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80 Z" fill="#FDFBF9"/>
+        </svg>
+    </div>
+
+    <section id="details">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <h2 class="section-title fade-in">Детали события</h2>
+        
+        <div class="details-grid">
+            <div class="detail-card fade-in">
+                <svg class="corner-flourish top-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-left" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                
+                <div class="detail-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                        <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="detail-title">Дата</h3>
+                <p>12 сентября 2026 года<br>Суббота</p>
+            </div>
+            
+            <div class="detail-card fade-in">
+                <svg class="corner-flourish top-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-left" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                
+                <div class="detail-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="detail-title">Время</h3>
+                <p>17:30<br>Сбор гостей</p>
+            </div>
+            
+            <div class="detail-card fade-in">
+                <svg class="corner-flourish top-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-left" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                <svg class="corner-flourish bottom-right" viewBox="0 0 30 30">
+                    <path d="M5,5 Q5,20 20,20" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+                </svg>
+                
+                <div class="detail-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <h3 class="detail-title">Место</h3>
+                <p>
+                    <strong>Гастробар «Некрасов»</strong><br>
+                    <a href="https://yandex.ru/maps/?text=%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C%20%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8"
+                       target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        ул. Некрасова, 2, корп. 8
+                    </a><br>
+                    мкр. Сходня, Химки
+                </p>
+            </div>
+        </div>
+
+        <div class="map-container fade-in">
+            <iframe 
+                src="https://www.google.com/maps?q=%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80+%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C+%D1%83%D0%BB.+%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C+2%2C+%D0%BA%D0%BE%D1%80%D0%BF.+8%2C+%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C+%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&hl=ru&z=17&output=embed"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="fade-in" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80+%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C+%D1%83%D0%BB.+%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C+2%2C+%D0%BA%D0%BE%D1%80%D0%BF.+8%2C+%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C+%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8"
+               target="_blank" rel="noopener noreferrer" class="route-btn">
+               Маршрут в Google Maps
+            </a>
+
+            <a href="https://yandex.ru/maps/?rtext=~%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C%20%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&rtt=auto"
+               target="_blank" rel="noopener noreferrer" class="route-btn">
+               Маршрут в Яндекс.Картах
+            </a>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80 Z" fill="#F5F1ED"/>
+        </svg>
+    </div>
+
+    <section id="schedule">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram bottom-left">Е & М</div>
+        
+        <h2 class="section-title fade-in">Программа вечера</h2>
+        
+        <div class="timeline" id="timeline">
+            <svg class="timeline-svg" id="timelineSvg" preserveAspectRatio="none">
+                <path class="timeline-path" id="timelinePath" />
+            </svg>
+            
+            <!-- Сердечко-ползунок -->
+            <div class="heart-slider" id="heartSlider">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 50 C30 50 10 35 10 22 C10 15 15 10 22 10 C26 10 29 12 30 15 C31 12 34 10 38 10 C45 10 50 15 50 22 C50 35 30 50 30 50 Z" fill="#8B9466" opacity="0.9"/>
+                    <path d="M30 48 C30 48 12 34 12 22 C12 16 16 12 22 12 C26 12 29 14 30 16 C31 14 34 12 38 12 C44 12 48 16 48 22 C48 34 30 48 30 48 Z" fill="#9DAA77" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,80 L0,80 Z" fill="#F5F1ED"/>
+        </svg>
+    </div>
+
+    <section id="dresscode">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <h2 class="section-title fade-in">Палитра торжества</h2>
+        
+        <div class="dresscode-content fade-in">
+            <p class="dresscode-text">
+                Мы будем рады, если ваш наряд поддержит цветовую гамму нашего вечера
+            </p>
+            
+            <div class="color-palette" id="colorPalette"></div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C300,80 600,0 900,40 C1050,60 1150,20 1200,40 L1200,80 L0,80 Z" fill="#3E2723"/>
+        </svg>
+    </div>
+
+    <section id="countdown">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+            <circle cx="20" cy="20" r="1.5" fill="white" opacity="0.4"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+            <circle cx="20" cy="20" r="1.5" fill="white" opacity="0.4"/>
+        </svg>
+        <div class="monogram bottom-left" style="color: white;">Е & М</div>
+        
+        <h2 class="section-title fade-in">До свадьбы осталось</h2>
+        
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">0</span>
+                <span class="countdown-label">дней</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">0</span>
+                <span class="countdown-label">часов</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">0</span>
+                <span class="countdown-label">минут</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">0</span>
+                <span class="countdown-label">секунд</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,80 L0,80 Z" fill="#FDFBF9"/>
+        </svg>
+    </div>
+
+    <section id="wishes">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <h2 class="section-title fade-in">Пожелания</h2>
+        
+        <div class="wishes-container fade-in">
+            <div class="wishes-grid">
+                <div class="wish-card">
+                    <img src="photos/icon-gift.png" alt="Подарок" class="wish-icon-img">
+                    <p class="wish-text">
+                        Ваше присутствие в день нашей свадьбы — лучший подарок для нас! Мы ценим традиции, но, к сожалению, не сможем в полной мере насладиться красотой цветов... Поэтому будем рады любой другой альтернативе — например, бутылочке хорошего вина или подарку в денежном эквиваленте.
+                    </p>
+                </div>
+                
+                <div class="wish-card">
+                    <img src="photos/icon-baby.png" alt="Ребёнок" class="wish-icon-img">
+                    <p class="wish-text">
+                        Дорогие гости, наш вечер будет особенным и, к сожалению, не совсем подходящим для маленьких детей. Пожалуйста, позвольте себе отдохнуть и насладиться праздником в кругу взрослых.
+                    </p>
+                </div>
+                
+                <div class="wish-card wish-card-wide">
+                    <img src="photos/icon-kiss.png" alt="Поцелуй" class="wish-icon-img">
+                    <p class="wish-text">
+                        Мы за тёплые слова и искренние эмоции, поэтому предлагаем заменить «Горько!» на улыбки, тосты и объятия — ведь поцелуи особенно ценны, когда они случаются сами.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+            <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,80 L0,80 Z" fill="#FDFBF9"/>
+        </svg>
+    </div>
+
+    <section id="rsvp">
+        <svg class="section-ornament top-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-left" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <svg class="section-ornament bottom-right" viewBox="0 0 80 80">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="#8B9466" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="20" r="1.5" fill="#8B9466" opacity="0.6"/>
+        </svg>
+        <div class="monogram top-right">Е & М</div>
+        
+        <h2 class="section-title fade-in">Подтверждение присутствия</h2>
+        <p class="fade-in" style="max-width: 600px; margin-bottom: 2rem;">
+            Пожалуйста, подтвердите своё присутствие до <strong>29 августа 2026 года</strong>
+        </p>
+        
+        <form class="rsvp-form fade-in" id="rsvpForm" onsubmit="submitRSVP(event)">
+            <div class="form-group">
+                <label for="guestName">Ваше имя</label>
+                <input type="text" id="guestName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="attendance">Вы придёте?</label>
+                <select id="attendance" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="yes">Да, с удовольствием!</option>
+                    <option value="no">К сожалению, не смогу</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">Количество гостей</label>
+                <select id="guests">
+                    <option value="1">1 человек</option>
+                    <option value="2">2 человека</option>
+                    <option value="3">3 человека</option>
+                    <option value="4">4 человека</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="wishes">Пожелания по алкоголю или комментарии</label>
+                <textarea id="wishes" placeholder="Предпочтения в напитках, аллергии и т.д."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">Отправить</button>
+            
+            <div class="form-message" id="formMessage"></div>
+        </form>
+    </section>
+
+    <footer>
+        <svg class="section-ornament top-left" viewBox="0 0 80 80" style="opacity: 0.2;">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="white" stroke-width="1"/>
+            <circle cx="20" cy="20" r="1.5" fill="white"/>
+        </svg>
+        <svg class="section-ornament top-right" viewBox="0 0 80 80" style="opacity: 0.2;">
+            <path d="M10,10 Q20,5 30,15 Q25,25 15,30 Q5,25 10,10" fill="none" stroke="white" stroke-width="1"/>
+            <circle cx="20" cy="20" r="1.5" fill="white"/>
+        </svg>
+        <p class="footer-names">Евгений и Мария</p>
+        <p>С любовью ждём вас!</p>
+    </footer>
+
+    <div class="audio-player" id="audioPlayer" onclick="toggleAudio()">
+        <span class="audio-icon" id="audioIcon"></span>
+    </div>
+    
+    <audio id="backgroundAudio" loop preload="auto" autoplay muted>
+        <source src="Snow_Patrol_-_Chasing_Cars.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const siteConfig = {
+            coupleNames: "Евгений и Мария",
+            weddingDate: "2026-09-12T17:30",
+            
+            schedule: [
+                { time: "17:30", event: "Сбор гостей и welcome-зона" },
+                { time: "18:00", event: "Праздничный банкет" },
+                { time: "18:00 – 22:30", event: "Развлекательная программа" },
+                { time: "22:30", event: "Свадебный торт" },
+                { time: "23:00", event: "Окончание мероприятия" }
+            ],
+            
+            gallery: [
+                { image: "photos/date.jpg", caption: "Первое свидание" },
+                { image: "photos/trav.jpg", caption: "Первое путешествие" },
+                { image: "photos/rus.jpg", caption: "В Русской Общине" },
+                { image: "photos/derj.jpg", caption: "Держись за меня" },
+                { image: "photos/zerk.jpg", caption: "Зеркальная сказка" },
+                { image: "photos/shal.jpg", caption: "В шалаше" },
+                { image: "photos/self.jpg", caption: "Селфи из сказки" },
+                { image: "photos/gold.jpg", caption: "Golden Mood" },
+                { image: "photos/eif.jpg", caption: "ЭфилЁва башня" },
+                { image: "photos/nar.jpg", caption: "Нарисовали настроение" },
+                { image: "photos/push.jpg", caption: "Что-то на пушистом" },
+                { image: "photos/zam.jpg", caption: "Замковый тур" },
+                { image: "photos/aero.jpg", caption: "Аэроромантика" },
+                { image: "photos/bez.jpg", caption: "Без паники" },
+                { image: "photos/suj.jpg", caption: "Предложение" },
+                { image: "photos/hap.jpg", caption: "Наше счастье" }
+            ],
+            
+            dresscodeColors: [
+                { color: "#3E2723", name: "Тёмный шоколад", reference: "photos/colours/chok.jpg" },
+                { color: "#F1E1C6", name: "Шампань", reference: "photos/colours/sham.jpg" },
+                { color: "#8B9466", name: "Оливковый", reference: "photos/colours/oliv.jpg" }
+            ],
+            
+            emailjs: {
+                publicKey: "Bu3BLEj15jxGSvaIG",
+                serviceId: "service_2lkkd4g",
+                templateId: "template_205vycq"
+            },
+            
+            petalsConfig: {
+                maxPetals: 20,
+                minDuration: 12,
+                maxDuration: 22,
+                spawnInterval: 700
+            },
+            
+            sparklesConfig: {
+                maxSparkles: 30,
+                spawnInterval: 400
+            }
+        };
+
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init({ publicKey: siteConfig.emailjs.publicKey });
+        }
+
+        /* СЕРЕБРЯНЫЕ БЛЁСТКИ */
+        const sparklesContainer = document.getElementById('sparklesContainer');
+        let sparklesCount = 0;
+
+        function createSparkle() {
+            if (sparklesCount >= siteConfig.sparklesConfig.maxSparkles) return;
+            
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            
+            const size = Math.random() * 4 + 2;
+            sparkle.style.width = size + 'px';
+            sparkle.style.height = size + 'px';
+            
+            sparkle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            
+            sparklesContainer.appendChild(sparkle);
+            sparklesCount++;
+            
+            setTimeout(() => {
+                if (sparkle.parentNode) {
+                    sparkle.remove();
+                    sparklesCount--;
+                }
+            }, 4000);
+        }
+
+        setInterval(createSparkle, siteConfig.sparklesConfig.spawnInterval);
+
+        /* АВТОЗАПУСК МУЗЫКИ */
+        const audio = document.getElementById('backgroundAudio');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioIcon = document.getElementById('audioIcon');
+        let isPlaying = false;
+        let audioUnlocked = false;
+
+        audio.volume = 0.5;
+
+        function unlockAudio() {
+            if (audioUnlocked) return;
+            audioUnlocked = true;
+            
+            audio.muted = false;
+            audio.play()
+                .then(() => {
+                    isPlaying = true;
+                    audioIcon.textContent = '';
+                    audioPlayer.classList.add('playing');
+                })
+                .catch(err => console.error('Ошибка воспроизведения:', err));
+            
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('keydown', unlockAudio);
+            document.removeEventListener('wheel', unlockAudio);
+            document.removeEventListener('mousemove', unlockAudio);
+            document.removeEventListener('scroll', unlockAudio);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                audio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        audioUnlocked = true;
+                        audio.muted = false;
+                        audioIcon.textContent = '';
+                        audioPlayer.classList.add('playing');
+                    })
+                    .catch(() => {
+                        audio.muted = true;
+                        audio.play()
+                            .then(() => {
+                                isPlaying = true;
+                                audioIcon.textContent = '';
+                            })
+                            .catch(() => {});
+                    });
+            }, 500);
+        });
+
+        const interactionEvents = ['click', 'touchstart', 'keydown', 'wheel', 'scroll', 'mousemove'];
+        interactionEvents.forEach(event => {
+            document.addEventListener(event, unlockAudio, { once: true, passive: true, capture: true });
+        });
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                audioIcon.textContent = '🔇';
+                audioPlayer.classList.remove('playing');
+            } else {
+                audio.muted = false;
+                audio.play().then(() => {
+                    audioIcon.textContent = '';
+                    audioPlayer.classList.add('playing');
+                }).catch(e => console.log('Ошибка:', e));
+            }
+            isPlaying = !isPlaying;
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (!audioUnlocked) return;
+            if (document.hidden && isPlaying) {
+                fadeAudio(0.1, 1000);
+            } else if (!document.hidden && isPlaying) {
+                fadeAudio(0.5, 1000);
+            }
+        });
+
+        function fadeAudio(targetVolume, duration) {
+            const startVolume = audio.volume;
+            const startTime = performance.now();
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                audio.volume = startVolume + (targetVolume - startVolume) * progress;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        /* ЛЕПЕСТКИ */
+        const petalsContainer = document.getElementById('petalsContainer');
+        let petalsCount = 0;
+
+        function createPetal() {
+            if (petalsCount >= siteConfig.petalsConfig.maxPetals) return;
+            
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            
+            const startX = Math.random() * window.innerWidth;
+            petal.style.left = startX + 'px';
+            
+            const size = Math.random() * 10 + 10;
+            petal.style.width = size + 'px';
+            petal.style.height = size + 'px';
+            
+            const duration = Math.random() * 
+                (siteConfig.petalsConfig.maxDuration - siteConfig.petalsConfig.minDuration) + 
+                siteConfig.petalsConfig.minDuration;
+            petal.style.animationDuration = duration + 's';
+            
+            const hue = Math.random() * 30 - 15;
+            petal.style.filter = `hue-rotate(${hue}deg)`;
+            
+            petalsContainer.appendChild(petal);
+            petalsCount++;
+            
+            setTimeout(() => {
+                if (petal.parentNode) {
+                    petal.remove();
+                    petalsCount--;
+                }
+            }, duration * 1000 + 100);
+        }
+
+        setInterval(createPetal, siteConfig.petalsConfig.spawnInterval);
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createPetal, i * 200);
+        }
+
+        /* ФОТОГАЛЕРЕЯ */
+        let currentSlide = 0;
+        const slidesContainer = document.getElementById('gallerySlides');
+        const dotsContainer = document.getElementById('galleryDots');
+
+        siteConfig.gallery.forEach((item, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+            slide.innerHTML = `
+                <img src="${item.image}" alt="Фото ${index + 1}">
+                <div class="gallery-caption">${item.caption}</div>
+            `;
+            slidesContainer.appendChild(slide);
+
+            const dot = document.createElement('div');
+            dot.className = 'gallery-dot' + (index === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(index);
+            dotsContainer.appendChild(dot);
+        });
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= siteConfig.gallery.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = siteConfig.gallery.length - 1;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.gallery-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        setInterval(() => changeSlide(1), 2000);
+
+        /* ДРЕСС-КОД С ФОТО-РЕФЕРЕНСАМИ */
+        const colorPalette = document.getElementById('colorPalette');
+        siteConfig.dresscodeColors.forEach(item => {
+            const colorItem = document.createElement('div');
+            colorItem.className = 'color-item';
+            colorItem.innerHTML = `
+                <div class="color-circle" style="background-color: ${item.color};"></div>
+                <div class="color-reference">
+                    <img src="${item.reference}" alt="${item.name}">
+                </div>
+                <div class="color-name">${item.name}</div>
+            `;
+            colorPalette.appendChild(colorItem);
+        });
+
+        /* ============================================
+            ПРОГРАММА ВЕЧЕРА – ВОЛНИСТАЯ ЛИНИЯ
+           ============================================ */
+        const timelineContainer = document.getElementById('timeline');
+        const timelineItems = [];
+        
+        siteConfig.schedule.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            timelineItem.innerHTML = `
+                <div class="timeline-time">${item.time}</div>
+                <div class="timeline-content">
+                    <strong>${item.event}</strong>
+                </div>
+            `;
+            timelineContainer.appendChild(timelineItem);
+            timelineItems.push(timelineItem);
+        });
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const timelineSvg = document.getElementById('timelineSvg');
+        const timelinePath = document.getElementById('timelinePath');
+
+        let timelinePathLength = 0;
+        let pathBuilt = false;
+
+        function buildTimelinePath() {
+            const timelineRect = timelineContainer.getBoundingClientRect();
+            const width = timelineContainer.offsetWidth;
+            const height = timelineContainer.offsetHeight;
+            
+            timelineSvg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            timelineSvg.style.width = width + 'px';
+            timelineSvg.style.height = height + 'px';
+            
+            if (timelineItems.length < 2) return;
+            
+            const startX = width / 2;
+            const startY = 30;
+            const endY = height - 30;
+            
+            const amplitude = width * 0.35;
+            const waveCount = timelineItems.length / 2;
+            
+            let pathData = `M ${startX} ${startY}`;
+            
+            const totalPoints = 100;
+            const stepY = (endY - startY) / totalPoints;
+            
+            for (let i = 1; i <= totalPoints; i++) {
+                const y = startY + i * stepY;
+                const progress = i / totalPoints;
+                
+                const x = startX + Math.sin(progress * Math.PI * 2 * waveCount) * amplitude;
+                
+                if (i === 1) {
+                    pathData += ` Q ${x} ${y - stepY * 0.5}, ${x} ${y}`;
+                } else {
+                    const prevY = startY + (i - 1) * stepY;
+                    const prevX = startX + Math.sin(((i - 1) / totalPoints) * Math.PI * 2 * waveCount) * amplitude;
+                    const cpX = (prevX + x) / 2;
+                    const cpY = (prevY + y) / 2;
+                    pathData += ` Q ${cpX} ${cpY}, ${x} ${y}`;
+                }
+            }
+            
+            timelinePath.setAttribute('d', pathData);
+            
+            timelinePathLength = timelinePath.getTotalLength();
+            
+            timelinePath.style.strokeDasharray = timelinePathLength;
+            timelinePath.style.strokeDashoffset = timelinePathLength;
+            
+            pathBuilt = true;
+        }
+
+        function ensurePathBuilt() {
+            if (!pathBuilt) {
+                buildTimelinePath();
+                pathBuilt = true;
+            }
+        }
+        
+        window.addEventListener('load', () => {
+            setTimeout(ensurePathBuilt, 100);
+        });
+        
+        window.addEventListener('resize', () => {
+            pathBuilt = false;
+            buildTimelinePath();
+            if (timelinePath.classList.contains('animate')) {
+                const length = timelinePath.getTotalLength();
+                timelinePath.style.strokeDasharray = length;
+                timelinePath.style.strokeDashoffset = '0';
+            }
+        });
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ensurePathBuilt();
+                    setTimeout(() => {
+                        timelinePath.classList.add('animate');
+                    }, 400);
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        timelineObserver.observe(timelineContainer);
+
+        /* ============================================
+            СЕРДЕЧКО-ПОЛЗУНОК
+           ============================================ */
+        const heartSlider = document.getElementById('heartSlider');
+        let heartAnimationId = null;
+
+        function updateHeartPosition() {
+            if (!pathBuilt || !timelinePathLength) return;
+            
+            const scheduleSection = document.getElementById('schedule');
+            const scheduleRect = scheduleSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (scheduleRect.top > windowHeight || scheduleRect.bottom < 0) {
+                heartSlider.style.opacity = '0';
+                return;
+            }
+            
+            const visibleHeight = Math.min(scheduleRect.bottom, windowHeight) - Math.max(scheduleRect.top, 0);
+            const totalHeight = scheduleRect.height;
+            const progress = Math.max(0, Math.min(1, (windowHeight - scheduleRect.top) / (windowHeight + totalHeight)));
+            
+            const length = progress * timelinePathLength;
+            let point;
+            try {
+                point = timelinePath.getPointAtLength(length);
+            } catch (e) {
+                point = timelinePath.getPointAtLength(Math.min(length, timelinePathLength - 1));
+            }
+            
+            const x = point.x;
+            const y = point.y;
+            
+            heartSlider.style.left = x + 'px';
+            heartSlider.style.top = y + 'px';
+            heartSlider.style.opacity = '1';
+        }
+
+        window.addEventListener('scroll', () => {
+            if (heartAnimationId) {
+                cancelAnimationFrame(heartAnimationId);
+            }
+            heartAnimationId = requestAnimationFrame(updateHeartPosition);
+        });
+
+        window.addEventListener('resize', updateHeartPosition);
+
+        const heartPathObserver = new MutationObserver(() => {
+            if (pathBuilt) {
+                updateHeartPosition();
+                heartPathObserver.disconnect();
+            }
+        });
+        heartPathObserver.observe(timelinePath, { attributes: true, attributeFilter: ['d'] });
+
+        /* ОБРАТНЫЙ ОТСЧЁТ */
+        const prevValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+        function updateCountdown() {
+            const weddingDate = new Date(siteConfig.weddingDate).getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h2 class="section-title">Сегодня наш день!</h2>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const values = { days, hours, minutes, seconds };
+            
+            Object.keys(values).forEach(key => {
+                const el = document.getElementById(key);
+                if (prevValues[key] !== values[key]) {
+                    el.classList.remove('flip');
+                    void el.offsetWidth;
+                    el.classList.add('flip');
+                    el.textContent = values[key];
+                    prevValues[key] = values[key];
+                }
+            });
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* RSVP */
+        function showMessage(text, type) {
+            const msg = document.getElementById('formMessage');
+            msg.textContent = text;
+            msg.className = 'form-message ' + type;
+            
+            setTimeout(() => {
+                msg.className = 'form-message';
+            }, 5000);
+        }
+
+        async function submitRSVP(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            
+            const name = document.getElementById('guestName').value.trim();
+            const attendance = document.getElementById('attendance').value;
+            const guests = document.getElementById('guests').value;
+            const wishes = document.getElementById('wishes').value.trim();
+
+            const attendanceText = attendance === 'yes' 
+                ? 'Да, с удовольствием!' 
+                : 'К сожалению, не смогу';
+            
+            try {
+                await emailjs.send(
+                    siteConfig.emailjs.serviceId, 
+                    siteConfig.emailjs.templateId, 
+                    {
+                        to_email: "eugeny.electrolux@gmail.com",
+                        from_name: name,
+                        attendance: attendanceText,
+                        guests: guests,
+                        wishes: wishes || 'Нет',
+                        reply_to: name
+                    }
+                );
+                
+                showMessage('✅ Спасибо! Ваш ответ успешно отправлен. Мы свяжемся с вами в ближайшее время.', 'success');
+                document.getElementById('rsvpForm').reset();
+            } catch (error) {
+                console.error('Ошибка отправки:', error);
+                showMessage(' Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
+
+        /* ========== КОНВЕРТ ========== */
+        const envelopeContainer = document.getElementById('envelopeContainer');
+        const envelope = document.getElementById('envelope');
+        const paperclip = document.getElementById('paperclip');
+        const handText = document.getElementById('handText');
+        const cursor = document.getElementById('cursor');
+
+        const invitationText =
+`Мы рады пригласить вас разделить с нами один из самых важных дней в нашей жизни. 12 сентября 2026 года мы скажем друг другу «Да» и начнём нашу совместную историю.
+
+Будем счастливы видеть вас среди наших гостей!`;
+
+        let typedOnce = false;
+
+        function typeHandwriting(element, text, speed = 24) {
+            element.innerHTML = '';
+            cursor.style.display = 'inline-block';
+            let i = 0;
+
+            const typer = setInterval(() => {
+                if (i >= text.length) {
+                    clearInterval(typer);
+                    setTimeout(() => { cursor.style.display = 'none'; }, 600);
+                    return;
+                }
+                const ch = text[i];
+                if (ch === '\n') {
+                    element.innerHTML += '<br>';
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = ch;
+                    element.appendChild(span);
+                }
+                element.appendChild(cursor);
+                i++;
+            }, speed);
+        }
+
+        const envelopeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !typedOnce) {
+                    envelope.classList.add('open');
+                    paperclip.classList.add('shown');
+                    setTimeout(() => {
+                        typeHandwriting(handText, invitationText, 20);
+                    }, 700);
+                    typedOnce = true;
+                    envelopeObserver.unobserve(envelopeContainer);
+                }
+            });
+        }, { threshold: 0.35 });
+
+        envelopeObserver.observe(envelopeContainer);
+
+        /* ============================================
+            АВТОЗАПУСК ВИДЕО ПРИ СКРОЛЛЕ
+           ============================================ */
+        const autoVideo = document.getElementById('autoVideo');
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    autoVideo.play().catch(err => console.log('Видео автозапуск:', err));
+                } else {
+                    autoVideo.pause();
+                }
+            });
+        }, { threshold: [0, 0.5, 1.0] });
+
+        videoObserver.observe(autoVideo);
+    </script>
+
+</body>
+</html>
