@@ -2431,17 +2431,13 @@
     submitBtn.textContent = 'Отправка...';
     const attendanceText = attendance === 'yes' ? 'Да, с удовольствием!' : 'К сожалению, не смогу';
     try {
-        await emailjs.send(
-            'service_2lkkd4g',
-            'template_205vycq',
-            {
-                from_name: name,
-                attendance: attendanceText,
-                guests: guests,
-                wishes: wishes || 'Нет',
-                reply_to: name + ' <eugeny.electrolux@gmail.com>'
-            }
-        );
+        await emailjs.send('service_2lkkd4g', 'template_205vycq', {
+            from_name: name,
+            attendance: attendanceText,
+            guests: guests,
+            wishes: wishes || 'Нет',
+            reply_to: name + ' <eugeny.electrolux@gmail.com>'
+        });
         alert('✅ Спасибо! Ваш ответ успешно отправлен.');
         document.getElementById('rsvpForm').reset();
     } catch (error) {
