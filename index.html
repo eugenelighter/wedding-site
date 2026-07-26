@@ -622,22 +622,19 @@
         }
 
         .details-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1000px;
-    width: 100%;
-    margin: 4rem 0;
-    padding: 0 20px;
-}
-
-.detail-card {
-    flex: 1 1 280px;
-    max-width: 320px;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            margin: 4rem 0;
+            padding: 0 20px;
+        }
 
         .detail-card {
+            flex: 1 1 280px;
+            max-width: 320px;
             position: relative;
             background: white;
             padding: 3rem 2rem 2rem;
@@ -766,7 +763,6 @@
             margin: 3rem auto;
             padding: 2rem 0;
             width: 100%;
-            position: relative;
         }
 
         .timeline-svg {
@@ -1276,19 +1272,19 @@
         }
 
         @media (max-width: 768px) {
-    .details-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0 10px !important;
-    }
+            .details-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+                padding: 0 10px !important;
+            }
 
-    .detail-card {
-        width: 100% !important;
-        max-width: 380px !important;
-        margin: 0 auto !important;
-    }
+            .detail-card {
+                width: 100% !important;
+                max-width: 380px !important;
+                margin: 0 auto !important;
+            }
 
-    .couple-names { font-size: 4rem; }
+            .couple-names { font-size: 4rem; }
             .section-title { font-size: 3rem; }
             .countdown-number { font-size: 3rem; }
             .countdown-container { gap: 1rem; }
@@ -1656,7 +1652,7 @@
                Маршрут в Google Maps
             </a>
 
-            <a href="https://yandex.ru/maps/?rtext=~%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C%20%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&rtt=auto"
+            <a href="https://yandex.ru/maps/?rtext=~%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C+%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&rtt=auto"
                target="_blank" rel="noopener noreferrer" class="route-btn">
                Маршрут в Яндекс.Картах
             </a>
@@ -1953,8 +1949,11 @@
             }
         };
 
+        // Инициализация EmailJS с проверкой
         if (typeof emailjs !== 'undefined') {
             emailjs.init({ publicKey: siteConfig.emailjs.publicKey });
+        } else {
+            console.error('EmailJS не загружен. Форма обратной связи не будет работать.');
         }
 
         /* СЕРЕБРЯНЫЕ БЛЁСТКИ */
@@ -2408,46 +2407,64 @@
         }
 
         async function submitRSVP(event) {
-    event.preventDefault();
-    const submitBtn = document.getElementById('submitBtn');
-    const originalText = submitBtn.textContent;
-    const nameInput = document.getElementById('guestName');
-    const attendanceInput = document.getElementById('attendance');
-    const guestsInput = document.getElementById('guests');
-    const wishesInput = document.getElementById('wishes');
-    if (!nameInput || !attendanceInput || !guestsInput || !wishesInput) {
-        alert('Ошибка: форма загружена не полностью. Обновите страницу и попробуйте снова.');
-        return;
-    }
-    const name = nameInput.value.trim();
-    const attendance = attendanceInput.value;
-    const guests = guestsInput.value;
-    const wishes = wishesInput.value.trim();
-    if (!name || !attendance) {
-        alert('Пожалуйста, заполните ваше имя и выберите вариант присутствия.');
-        return;
-    }
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправка...';
-    const attendanceText = attendance === 'yes' ? 'Да, с удовольствием!' : 'К сожалению, не смогу';
-    try {
-        await emailjs.send('service_2lkkd4g', 'template_205vycq', {
-            from_name: name,
-            attendance: attendanceText,
-            guests: guests,
-            wishes: wishes || 'Нет',
-            reply_to: name + ' <eugeny.electrolux@gmail.com>'
-        });
-        alert('✅ Спасибо! Ваш ответ успешно отправлен.');
-        document.getElementById('rsvpForm').reset();
-    } catch (error) {
-        console.error('Ошибка отправки:', error);
-        alert('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам напрямую.');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-    }
-}
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            // Проверяем, загружен ли EmailJS
+            if (typeof emailjs === 'undefined') {
+                showMessage('❌ Сервис отправки временно недоступен. Пожалуйста, напишите нам напрямую на почту.', 'error');
+                return;
+            }
+
+            const nameInput = document.getElementById('guestName');
+            const attendanceInput = document.getElementById('attendance');
+            const guestsInput = document.getElementById('guests');
+            const wishesInput = document.getElementById('wishes');
+            
+            if (!nameInput || !attendanceInput || !guestsInput || !wishesInput) {
+                showMessage('Ошибка: форма загружена не полностью. Обновите страницу и попробуйте снова.', 'error');
+                return;
+            }
+            
+            const name = nameInput.value.trim();
+            const attendance = attendanceInput.value;
+            const guests = guestsInput.value;
+            const wishes = wishesInput.value.trim();
+            
+            if (!name || !attendance) {
+                showMessage('Пожалуйста, заполните ваше имя и выберите вариант присутствия.', 'error');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            
+            const attendanceText = attendance === 'yes' ? 'Да, с удовольствием!' : 'К сожалению, не смогу';
+            
+            try {
+                await emailjs.send(
+                    siteConfig.emailjs.serviceId, 
+                    siteConfig.emailjs.templateId, 
+                    {
+                        to_email: "eugeny.electrolux@gmail.com",
+                        from_name: name,
+                        attendance: attendanceText,
+                        guests: guests,
+                        wishes: wishes || 'Нет',
+                        reply_to: "eugeny.electrolux@gmail.com"
+                    }
+                );
+                showMessage('✅ Спасибо! Ваш ответ успешно отправлен.', 'success');
+                document.getElementById('rsvpForm').reset();
+            } catch (error) {
+                console.error('Ошибка отправки:', error);
+                showMessage('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам на почту.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
 
         /* ========== КОНВЕРТ ========== */
         const envelopeContainer = document.getElementById('envelopeContainer');
