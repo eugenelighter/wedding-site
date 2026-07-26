@@ -1265,71 +1265,104 @@
             color: var(--text-color);
         }
 
-        @media (max-width: 768px) {
-            .couple-names { font-size: 4rem; }
-            .section-title { font-size: 3rem; }
-            .countdown-number { font-size: 3rem; }
-            .countdown-container { gap: 1rem; }
+       @media (max-width: 768px) {
+    .couple-names { font-size: 4rem; }
+    .section-title { font-size: 3rem; }
+    .countdown-number { font-size: 3rem; }
+    .countdown-container { gap: 1rem; }
 
-            .gallery-slide img { height: 467px; }
-            .gallery-slider { max-width: 350px; }
-            .gallery-btn { width: 40px; height: 40px; font-size: 1.2rem; }
-            .gallery-btn.prev { left: 10px; }
-            .gallery-btn.next { right: 10px; }
+    .gallery-slide img { height: 467px; }
+    .gallery-slider { max-width: 350px; }
+    .gallery-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+    .gallery-btn.prev { left: 10px; }
+    .gallery-btn.next { right: 10px; }
 
-            .color-circle { width: 90px; height: 90px; }
-            .color-reference { width: 120px; height: 120px; }
-            .color-palette { gap: 2rem; }
+    .color-circle { width: 90px; height: 90px; }
+    .color-reference { width: 120px; height: 120px; }
+    .color-palette { gap: 2rem; }
 
-            .audio-player { width: 50px; height: 50px; bottom: 20px; right: 20px; }
-            .audio-icon { font-size: 1.5rem; }
+    .audio-player { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+    .audio-icon { font-size: 1.5rem; }
 
-            .monogram { font-size: 1.5rem; }
-            .section-ornament { width: 50px; height: 50px; }
-            .corner-ornament { width: 40px; height: 40px; }
+    .monogram { font-size: 1.5rem; }
+    .section-ornament { width: 50px; height: 50px; }
+    .corner-ornament { width: 40px; height: 40px; }
 
-            .invitation-heading { font-size: 3rem; }
+    .invitation-heading { font-size: 3rem; }
 
-            .envelope-container { 
-                max-width: 100%; 
-                margin-top: 80px; 
-            }
-            .envelope { 
-                height: 380px;
-            }
-            .envelope-paper { 
-                padding: 28px 20px;
-                top: 12%;
-                bottom: 4%;
-                left: 4%;
-                right: 4%;
-            }
-            .handwritten { 
-                font-size: 1.2rem;
-                line-height: 1.6rem;
-            }
-            .clothesline { width: 130%; top: -28px; }
+    /* Исправление для карточек "Детали события" - вертикальное расположение */
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .detail-card {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .detail-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .detail-title {
+        font-size: 2rem;
+    }
 
-            .timeline-content {
-                max-width: 100%;
-            }
+    .envelope-container { 
+        max-width: 100%; 
+        margin-top: 80px; 
+    }
+    .envelope { 
+        height: 380px;
+    }
+    .envelope-paper { 
+        padding: 28px 20px;
+        top: 12%;
+        bottom: 4%;
+        left: 4%;
+        right: 4%;
+    }
+    .handwritten { 
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+    .clothesline { width: 130%; top: -28px; }
 
-            .heart-slider { width: 40px; height: 40px; }
-            
-            .wishes-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .wish-card-wide {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .wish-card-wide .wish-icon-img {
-                margin-bottom: 1.5rem;
-            }
-        }
+    .timeline-content {
+        max-width: 100%;
+    }
+
+    .heart-slider { width: 40px; height: 40px; }
+    
+    .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .wish-card-wide {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .wish-card-wide .wish-icon-img {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+</head>
+<body>
 
         .fade-in {
             opacity: 0;
