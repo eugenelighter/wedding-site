@@ -622,19 +622,14 @@
         }
 
         .details-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
             max-width: 1000px;
-            width: 100%;
             margin: 4rem 0;
-            padding: 0 20px;
         }
 
         .detail-card {
-            flex: 1 1 280px;
-            max-width: 320px;
             position: relative;
             background: white;
             padding: 3rem 2rem 2rem;
@@ -763,6 +758,7 @@
             margin: 3rem auto;
             padding: 2rem 0;
             width: 100%;
+            position: relative;
         }
 
         .timeline-svg {
@@ -1204,7 +1200,6 @@
             object-fit: cover;
         }
 
-        /* Стили для блока Пожелания */
         .wishes-container {
             max-width: 900px;
             margin: 0 auto;
@@ -1244,7 +1239,6 @@
             box-shadow: 0 12px 40px rgba(62, 39, 35, 0.15);
         }
 
-        /* Третья плашка на всю ширину */
         .wish-card-wide {
             grid-column: 1 / -1;
             flex-direction: row;
@@ -1272,18 +1266,6 @@
         }
 
         @media (max-width: 768px) {
-            .details-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-                padding: 0 10px !important;
-            }
-
-            .detail-card {
-                width: 100% !important;
-                max-width: 380px !important;
-                margin: 0 auto !important;
-            }
-
             .couple-names { font-size: 4rem; }
             .section-title { font-size: 3rem; }
             .countdown-number { font-size: 3rem; }
@@ -1652,7 +1634,7 @@
                Маршрут в Google Maps
             </a>
 
-            <a href="https://yandex.ru/maps/?rtext=~%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C+%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&rtt=auto"
+            <a href="https://yandex.ru/maps/?rtext=~%D0%93%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B1%D0%B0%D1%80%20%C2%AB%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%C2%BB%2C%20%D1%83%D0%BB.%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%2C%202%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%208%2C%20%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F%2C%20%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8&rtt=auto"
                target="_blank" rel="noopener noreferrer" class="route-btn">
                Маршрут в Яндекс.Картах
             </a>
@@ -1683,7 +1665,6 @@
                 <path class="timeline-path" id="timelinePath" />
             </svg>
             
-            <!-- Сердечко-ползунок -->
             <div class="heart-slider" id="heartSlider">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 50 C30 50 10 35 10 22 C10 15 15 10 22 10 C26 10 29 12 30 15 C31 12 34 10 38 10 C45 10 50 15 50 22 C50 35 30 50 30 50 Z" fill="#8B9466" opacity="0.9"/>
@@ -1838,12 +1819,12 @@
         <form class="rsvp-form fade-in" id="rsvpForm" onsubmit="submitRSVP(event)">
             <div class="form-group">
                 <label for="guestName">Ваше имя</label>
-                <input type="text" id="guestName" required>
+                <input type="text" id="guestName" name="guestName" required>
             </div>
             
             <div class="form-group">
                 <label for="attendance">Вы придёте?</label>
-                <select id="attendance" required>
+                <select id="attendance" name="attendance" required>
                     <option value="">Выберите вариант</option>
                     <option value="yes">Да, с удовольствием!</option>
                     <option value="no">К сожалению, не смогу</option>
@@ -1852,7 +1833,7 @@
             
             <div class="form-group">
                 <label for="guests">Количество гостей</label>
-                <select id="guests">
+                <select id="guests" name="guests">
                     <option value="1">1 человек</option>
                     <option value="2">2 человека</option>
                     <option value="3">3 человека</option>
@@ -1862,7 +1843,7 @@
             
             <div class="form-group">
                 <label for="wishes">Пожелания по алкоголю или комментарии</label>
-                <textarea id="wishes" placeholder="Предпочтения в напитках, аллергии и т.д."></textarea>
+                <textarea id="wishes" name="wishes" placeholder="Предпочтения в напитках, аллергии и т.д."></textarea>
             </div>
             
             <button type="submit" class="submit-btn" id="submitBtn">Отправить</button>
@@ -1908,26 +1889,26 @@
             gallery: [
                 { image: "photos/date.jpg", caption: "Первое свидание" },
                 { image: "photos/trav.jpg", caption: "Первое путешествие" },
-                { image: "photos/rus.jpg", caption: "В Русской Общине" },
-                { image: "photos/derj.jpg", caption: "Держись за меня" },
-                { image: "photos/zerk.jpg", caption: "Зеркальная сказка" },
+                { image: "photos/Rus.jpg", caption: "В Русской Общине" },
+                { image: "photos/Derj.jpg", caption: "Держись за меня" },
+                { image: "photos/Zerk.jpg", caption: "Зеркальная сказка" },
                 { image: "photos/shal.jpg", caption: "В шалаше" },
-                { image: "photos/self.jpg", caption: "Селфи из сказки" },
-                { image: "photos/gold.jpg", caption: "Golden Mood" },
-                { image: "photos/eif.jpg", caption: "ЭфилЁва башня" },
-                { image: "photos/nar.jpg", caption: "Нарисовали настроение" },
-                { image: "photos/push.jpg", caption: "Что-то на пушистом" },
-                { image: "photos/zam.jpg", caption: "Замковый тур" },
-                { image: "photos/aero.jpg", caption: "Аэроромантика" },
-                { image: "photos/bez.jpg", caption: "Без паники" },
+                { image: "photos/Self.jpg", caption: "Селфи из сказки" },
+                { image: "photos/Gold.jpg", caption: "Golden Mood" },
+                { image: "photos/Eif.jpg", caption: "ЭфилЁва башня" },
+                { image: "photos/Nar.jpg", caption: "Нарисовали настроение" },
+                { image: "photos/Push.jpg", caption: "Что-то на пушистом" },
+                { image: "photos/Zam.jpg", caption: "Замковый тур" },
+                { image: "photos/Aero.jpg", caption: "Аэроромантика" },
+                { image: "photos/Bez.jpg", caption: "Без паники" },
                 { image: "photos/suj.jpg", caption: "Предложение" },
                 { image: "photos/hap.jpg", caption: "Наше счастье" }
             ],
             
             dresscodeColors: [
-                { color: "#3E2723", name: "Тёмный шоколад", reference: "photos/colours/chok.jpg" },
-                { color: "#F1E1C6", name: "Шампань", reference: "photos/colours/sham.jpg" },
-                { color: "#8B9466", name: "Оливковый", reference: "photos/colours/oliv.jpg" }
+                { color: "#3E2723", name: "Тёмный шоколад", reference: "photos/colours/CHOK.jpg" },
+                { color: "#F1E1C6", name: "Шампань", reference: "photos/colours/SHAM.jpg" },
+                { color: "#8B9466", name: "Оливковый", reference: "photos/colours/OLIV.jpg" }
             ],
             
             emailjs: {
@@ -1949,14 +1930,10 @@
             }
         };
 
-        // Инициализация EmailJS с проверкой
         if (typeof emailjs !== 'undefined') {
             emailjs.init({ publicKey: siteConfig.emailjs.publicKey });
-        } else {
-            console.error('EmailJS не загружен. Форма обратной связи не будет работать.');
         }
 
-        /* СЕРЕБРЯНЫЕ БЛЁСТКИ */
         const sparklesContainer = document.getElementById('sparklesContainer');
         let sparklesCount = 0;
 
@@ -1989,7 +1966,6 @@
 
         setInterval(createSparkle, siteConfig.sparklesConfig.spawnInterval);
 
-        /* АВТОЗАПУСК МУЗЫКИ */
         const audio = document.getElementById('backgroundAudio');
         const audioPlayer = document.getElementById('audioPlayer');
         const audioIcon = document.getElementById('audioIcon');
@@ -2006,10 +1982,10 @@
             audio.play()
                 .then(() => {
                     isPlaying = true;
-                    audioIcon.textContent = '';
+                    audioIcon.textContent = '🔊';
                     audioPlayer.classList.add('playing');
                 })
-                .catch(err => console.error('Ошибка воспроизведения:', err));
+                .catch(err => console.log('Audio play blocked:', err));
             
             document.removeEventListener('click', unlockAudio);
             document.removeEventListener('touchstart', unlockAudio);
@@ -2026,7 +2002,7 @@
                         isPlaying = true;
                         audioUnlocked = true;
                         audio.muted = false;
-                        audioIcon.textContent = '';
+                        audioIcon.textContent = '🔊';
                         audioPlayer.classList.add('playing');
                     })
                     .catch(() => {
@@ -2034,7 +2010,7 @@
                         audio.play()
                             .then(() => {
                                 isPlaying = true;
-                                audioIcon.textContent = '';
+                                audioIcon.textContent = '🔇';
                             })
                             .catch(() => {});
                     });
@@ -2054,9 +2030,9 @@
             } else {
                 audio.muted = false;
                 audio.play().then(() => {
-                    audioIcon.textContent = '';
+                    audioIcon.textContent = '🔊';
                     audioPlayer.classList.add('playing');
-                }).catch(e => console.log('Ошибка:', e));
+                }).catch(e => console.log('Audio error:', e));
             }
             isPlaying = !isPlaying;
         }
@@ -2082,7 +2058,6 @@
             requestAnimationFrame(update);
         }
 
-        /* ЛЕПЕСТКИ */
         const petalsContainer = document.getElementById('petalsContainer');
         let petalsCount = 0;
 
@@ -2123,7 +2098,6 @@
             setTimeout(createPetal, i * 200);
         }
 
-        /* ФОТОГАЛЕРЕЯ */
         let currentSlide = 0;
         const slidesContainer = document.getElementById('gallerySlides');
         const dotsContainer = document.getElementById('galleryDots');
@@ -2164,7 +2138,6 @@
 
         setInterval(() => changeSlide(1), 2000);
 
-        /* ДРЕСС-КОД С ФОТО-РЕФЕРЕНСАМИ */
         const colorPalette = document.getElementById('colorPalette');
         siteConfig.dresscodeColors.forEach(item => {
             const colorItem = document.createElement('div');
@@ -2179,9 +2152,6 @@
             colorPalette.appendChild(colorItem);
         });
 
-        /* ============================================
-            ПРОГРАММА ВЕЧЕРА – ВОЛНИСТАЯ ЛИНИЯ
-           ============================================ */
         const timelineContainer = document.getElementById('timeline');
         const timelineItems = [];
         
@@ -2290,9 +2260,6 @@
 
         timelineObserver.observe(timelineContainer);
 
-        /* ============================================
-            СЕРДЕЧКО-ПОЛЗУНОК
-           ============================================ */
         const heartSlider = document.getElementById('heartSlider');
         let heartAnimationId = null;
 
@@ -2345,7 +2312,6 @@
         });
         heartPathObserver.observe(timelinePath, { attributes: true, attributeFilter: ['d'] });
 
-        /* ОБРАТНЫЙ ОТСЧЁТ */
         const prevValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
         function updateCountdown() {
@@ -2380,7 +2346,6 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2395,78 +2360,91 @@
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* RSVP */
         function showMessage(text, type) {
             const msg = document.getElementById('formMessage');
-            msg.textContent = text;
-            msg.className = 'form-message ' + type;
-            
-            setTimeout(() => {
-                msg.className = 'form-message';
-            }, 5000);
+            if (msg) {
+                msg.textContent = text;
+                msg.className = 'form-message ' + type;
+                msg.style.display = 'block';
+                
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 5000);
+            }
         }
 
         async function submitRSVP(event) {
             event.preventDefault();
+            
             const submitBtn = document.getElementById('submitBtn');
+            if (!submitBtn) {
+                alert('Кнопка отправки не найдена. Обновите страницу.');
+                return;
+            }
+            
             const originalText = submitBtn.textContent;
             
-            // Проверяем, загружен ли EmailJS
-            if (typeof emailjs === 'undefined') {
-                showMessage('❌ Сервис отправки временно недоступен. Пожалуйста, напишите нам напрямую на почту.', 'error');
-                return;
-            }
-
-            const nameInput = document.getElementById('guestName');
-            const attendanceInput = document.getElementById('attendance');
-            const guestsInput = document.getElementById('guests');
-            const wishesInput = document.getElementById('wishes');
+            const nameEl = document.getElementById('guestName');
+            const attendanceEl = document.getElementById('attendance');
+            const guestsEl = document.getElementById('guests');
+            const wishesEl = document.getElementById('wishes');
             
-            if (!nameInput || !attendanceInput || !guestsInput || !wishesInput) {
-                showMessage('Ошибка: форма загружена не полностью. Обновите страницу и попробуйте снова.', 'error');
+            if (!nameEl || !attendanceEl || !guestsEl || !wishesEl) {
+                alert('Ошибка: форма загружена некорректно. Пожалуйста, обновите страницу (Ctrl+F5).');
                 return;
             }
             
-            const name = nameInput.value.trim();
-            const attendance = attendanceInput.value;
-            const guests = guestsInput.value;
-            const wishes = wishesInput.value.trim();
+            const name = nameEl.value ? nameEl.value.trim() : '';
+            const attendance = attendanceEl.value || '';
+            const guests = guestsEl.value || '1';
+            const wishes = wishesEl.value ? wishesEl.value.trim() : '';
             
-            if (!name || !attendance) {
-                showMessage('Пожалуйста, заполните ваше имя и выберите вариант присутствия.', 'error');
+            if (!name) {
+                alert('Пожалуйста, введите ваше имя.');
+                return;
+            }
+            
+            if (!attendance) {
+                alert('Пожалуйста, выберите вариант присутствия.');
                 return;
             }
             
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
-            const attendanceText = attendance === 'yes' ? 'Да, с удовольствием!' : 'К сожалению, не смогу';
+            const attendanceText = attendance === 'yes' 
+                ? 'Да, с удовольствием!' 
+                : 'К сожалению, не смогу';
             
             try {
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS не загружен');
+                }
+                
                 await emailjs.send(
-                    siteConfig.emailjs.serviceId, 
-                    siteConfig.emailjs.templateId, 
+                    siteConfig.emailjs.serviceId,
+                    siteConfig.emailjs.templateId,
                     {
-                        to_email: "eugeny.electrolux@gmail.com",
                         from_name: name,
                         attendance: attendanceText,
                         guests: guests,
                         wishes: wishes || 'Нет',
-                        reply_to: "eugeny.electrolux@gmail.com"
+                        to_email: 'eugeny.electrolux@gmail.com',
+                        reply_to: 'eugeny.electrolux@gmail.com'
                     }
                 );
+                
                 showMessage('✅ Спасибо! Ваш ответ успешно отправлен.', 'success');
                 document.getElementById('rsvpForm').reset();
             } catch (error) {
                 console.error('Ошибка отправки:', error);
-                showMessage('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам на почту.', 'error');
+                showMessage('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             }
         }
 
-        /* ========== КОНВЕРТ ========== */
         const envelopeContainer = document.getElementById('envelopeContainer');
         const envelope = document.getElementById('envelope');
         const paperclip = document.getElementById('paperclip');
@@ -2520,15 +2498,12 @@
 
         envelopeObserver.observe(envelopeContainer);
 
-        /* ============================================
-            АВТОЗАПУСК ВИДЕО ПРИ СКРОЛЛЕ
-           ============================================ */
         const autoVideo = document.getElementById('autoVideo');
         
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                    autoVideo.play().catch(err => console.log('Видео автозапуск:', err));
+                    autoVideo.play().catch(err => console.log('Video autoplay:', err));
                 } else {
                     autoVideo.pause();
                 }
