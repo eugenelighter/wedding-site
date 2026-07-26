@@ -2408,47 +2408,50 @@
         }
 
         async function submitRSVP(event) {
-            event.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправка...';
-            
-            const name = document.getElementById('guestName').value.trim();
-            const attendance = document.getElementById('attendance').value;
-            const guests = document.getElementById('guests').value;
-            const wishes = document.getElementById('wishes').value.trim();
-
-            const attendanceText = attendance === 'yes' 
-                ? 'Да, с удовольствием!' 
-                : 'К сожалению, не смогу';
-            
-            try {
-                await emailjs.send(
-                    siteConfig.emailjs.serviceId, 
-                    siteConfig.emailjs.templateId, 
-                    {
-                        to_email: "eugeny.electrolux@gmail.com",
-                        from_name: name,
-                        attendance: attendanceText,
-                        guests: guests,
-                        wishes: wishes || 'Нет',
-                        reply_to: name
-                    }
-                );
-                
-                showMessage('✅ Спасибо! Ваш ответ успешно отправлен. Мы свяжемся с вами в ближайшее время.', 'success');
-                document.getElementById('rsvpForm').reset();
-            } catch (error) {
-                console.error('Ошибка отправки:', error);
-                showMessage(' Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
+    event.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.textContent;
+    const nameInput = document.getElementById('guestName');
+    const attendanceInput = document.getElementById('attendance');
+    const guestsInput = document.getElementById('guests');
+    const wishesInput = document.getElementById('wishes');
+    if (!nameInput || !attendanceInput || !guestsInput || !wishesInput) {
+        alert('Ошибка: форма загружена не полностью. Обновите страницу и попробуйте снова.');
+        return;
+    }
+    const name = nameInput.value.trim();
+    const attendance = attendanceInput.value;
+    const guests = guestsInput.value;
+    const wishes = wishesInput.value.trim();
+    if (!name || !attendance) {
+        alert('Пожалуйста, заполните ваше имя и выберите вариант присутствия.');
+        return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+    const attendanceText = attendance === 'yes' ? 'Да, с удовольствием!' : 'К сожалению, не смогу';
+    try {
+        await emailjs.send(
+            'service_2lkkd4g',
+            'template_205vycq',
+            {
+                from_name: name,
+                attendance: attendanceText,
+                guests: guests,
+                wishes: wishes || 'Нет',
+                reply_to: name + ' <eugeny.electrolux@gmail.com>'
             }
-        }
+        );
+        alert('✅ Спасибо! Ваш ответ успешно отправлен.');
+        document.getElementById('rsvpForm').reset();
+    } catch (error) {
+        console.error('Ошибка отправки:', error);
+        alert('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам напрямую.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+}
 
         /* ========== КОНВЕРТ ========== */
         const envelopeContainer = document.getElementById('envelopeContainer');
